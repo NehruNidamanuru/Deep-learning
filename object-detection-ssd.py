@@ -1,5 +1,3 @@
-import os
-os.chdir('C:\\Users\\nnidamanuru\\.spyder-py3')
 from ssd import SSD300
 import ssd_utils
 import custom_generator as generator
@@ -12,11 +10,11 @@ voc_classes = ['Aeroplane', 'Bicycle', 'Bird', 'Boat', 'Bottle',
 NUM_CLASSES = len(voc_classes) + 1
 input_shape=(300, 300, 3)
 
-weights_dir = 'C:/Users/nnidamanuru/Downloads/weights_SSD300.hdf5'
+weights_dir = 'E:/weights_SSD300.hdf5'
 model = SSD300(input_shape, num_classes=NUM_CLASSES)
 model.load_weights(weights_dir, by_name=True)
 
-path = 'C:\\Users\\nnidamanuru\\Downloads\\Ge_videos\\data3\\1'
+path = 'E:\\pics'
 batch_size = 1
 target_size = (300, 300)
 nb_test_samples = 5
@@ -41,4 +39,4 @@ ssd_utils.display_boxes(images[0],results[4],0.4, voc_classes)
 
 score_thresh = 0.4
 for i, img in enumerate(next(test_generator)):
-    ssd_utils.display_boxes(img,results[i],score_thresh,voc_classes)
+    ssd_utils.display_boxes(img,results[i],score_thresh)
